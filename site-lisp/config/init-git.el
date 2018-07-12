@@ -10,12 +10,12 @@
 ;; Last-Updated: 2014-01-03 23:04:31
 ;;           By: Andy Stewart
 ;; URL: http://www.emacswiki.org/emacs/download/init-git.el
-;; Keywords: 
+;; Keywords:
 ;; Compatibility: GNU Emacs 24.3.50.1
 ;;
 ;; Features that might be required by this library:
 ;;
-;; 
+;;
 ;;
 
 ;;; This file is NOT part of GNU Emacs
@@ -37,10 +37,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
 ;; Floor, Boston, MA 02110-1301, USA.
 
-;;; Commentary: 
-;; 
+;;; Commentary:
+;;
 ;; Init for git
-;; 
+;;
 
 ;;; Installation:
 ;;
@@ -57,32 +57,35 @@
 
 ;;; Customize:
 ;;
-;; 
+;;
 ;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET init-git RET
 ;;
 
 ;;; Change log:
-;;	
+;;
 ;; 2014/01/03
 ;;      * First released.
-;; 
+;;
 
 ;;; Acknowledgements:
 ;;
-;; 
+;;
 ;;
 
 ;;; TODO
 ;;
-;; 
+;;
 ;;
 
 ;;; Require
 
 
 ;;; Code:
+
+(require 'magit)
+(lazy-set-key '(("C-x g" . magit-status)))
 
 (defun get-git-user-name ()
   (interactive)
