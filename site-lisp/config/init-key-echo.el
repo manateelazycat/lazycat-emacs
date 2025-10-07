@@ -86,7 +86,7 @@
 
 (key-echo-enable)
 
-(defun key-echo-shift-to-switch-input-method (key)
+(defun key-echo-monitor-callback (key)
   (interactive)
   ;; (message "***** %s" key)
   (cond
@@ -105,7 +105,7 @@
       (unless blink-search-start-buffer
         (blink-search))))))
 
-(setq key-echo-single-key-trigger-func 'key-echo-shift-to-switch-input-method)
+(setq key-echo-single-key-trigger-func 'key-echo-monitor-callback)
 
 (provide 'init-key-echo)
 
