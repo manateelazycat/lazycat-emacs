@@ -83,7 +83,7 @@
 (require 'rime)
 
 ;;; Code:
-(setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime"))
+(setq rime-user-data-dir (expand-file-name "~/.local/share/fcitx5/rime"))
 
 (setq rime-posframe-properties
       (list :background-color "#333333"
