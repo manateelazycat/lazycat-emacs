@@ -345,8 +345,8 @@
 (unless (featurep 'cocoa)
   (lazy-load-global-keys
    '(
-     ("M-j" . eaf-open-in-file-manager)
-     ("<f8>" . eaf-open-in-file-manager)
+     ("M-j" . lazycat-emacs-open-dir)
+     ("<f8>" . lazycat-emacs-open-dir)
      ("s-'" . eaf-open)
      ("s-\"" . eaf-open-browser)
      ("s-n" . eaf-open-terminal)

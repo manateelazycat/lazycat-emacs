@@ -85,17 +85,23 @@
 
 ;;; Code:
 
+(defun lazycat-emacs-open-dir (&optional dir)
+  (interactive)
+  (if (eq window-system 'pgtk)
+      (dired dir)
+    (eaf-open-in-file-manager dir)))
+
 (one-key-create-menu
  "DIRECTORY"
  '(
-   (("h" . "Home") . (lambda () (interactive) (eaf-open-in-file-manager "~/")))
-   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Book")))
-   (("j" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Picture")))
-   (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Music")))
-   (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
-   ((";" . "Extension") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions")))
-   (("o" . "EAF") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
-   (("l" . "LazyCat") . (lambda () (interactive) (eaf-open-in-file-manager "/home/andy/microserver")))
+   (("h" . "Home") . (lambda () (interactive) (lazycat-emacs-open-dir "~/")))
+   (("b" . "Book") . (lambda () (interactive) (lazycat-emacs-open-dir "/data/Book")))
+   (("j" . "Picture") . (lambda () (interactive) (lazycat-emacs-open-dir "/data/Picture")))
+   (("m" . "Music") . (lambda () (interactive) (lazycat-emacs-open-dir "/data/Music")))
+   (("c" . "Config") . (lambda () (interactive) (lazycat-emacs-open-dir lazycat-emacs-config-dir)))
+   ((";" . "Extension") . (lambda () (interactive) (lazycat-emacs-open-dir "/home/andy/lazycat-emacs/site-lisp/extensions")))
+   (("o" . "EAF") . (lambda () (interactive) (lazycat-emacs-open-dir "/home/andy/lazycat-emacs/site-lisp/extensions/emacs-application-framework")))
+   (("l" . "LazyCat") . (lambda () (interactive) (lazycat-emacs-open-dir "/home/andy/microserver")))
    )
  t)
 
