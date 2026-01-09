@@ -63,9 +63,6 @@
     (require 'init-rime)
     (require 'init-treesit)
 
-    (unless (eq window-system 'pgtk)
-      (require 'init-key-echo))
-
     ;; 可以延后加载的
     (run-with-idle-timer
      1 nil
@@ -86,6 +83,7 @@
          (require 'init-olivetti)
 
          (unless (eq window-system 'pgtk)
+           (require 'init-key-echo)
            (require 'init-holo-layer)
            (require 'init-eaf))
 
