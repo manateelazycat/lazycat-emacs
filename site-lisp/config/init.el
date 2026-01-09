@@ -62,7 +62,9 @@
     (require 'init-performance)
     (require 'init-rime)
     (require 'init-treesit)
-    (require 'init-key-echo)
+
+    (unless (eq window-system 'pgtk)
+      (require 'init-key-echo))
 
     ;; 可以延后加载的
     (run-with-idle-timer
