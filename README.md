@@ -27,7 +27,8 @@ or compile from source code:
 git pull ; ./configure --prefix=/usr --with-x-toolkit=gtk3 --with-tree-sitter --without-xim ; make -j32; sudo make install ; sudo rm /usr/local/share/applications/emacsclient.desktop
 ```
 
-Use `--without-xim` option to avoid input method active in Emacs, emacs-rime is better solution.
+* Use `--with-pgtk` instead `--with-x-toolkit=gtk3` if you use Wayland.
+* Use `--without-xim` option to avoid input method active in Emacs, emacs-rime is better solution.
 
 2. Install Font:
 
