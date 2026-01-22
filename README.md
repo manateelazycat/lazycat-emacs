@@ -16,41 +16,36 @@ python update_submodule.py
 ```
 
 ## Install On Arch Linux
-1. Install emacs git version:
-```
-sudo pacman -S emacs-git tree-sitter
-```
-
-or compile from source code:
+1. compile from source code:
 
 ```
+sudo pacman -S tree-sitter wqy-microhei deno
+
 git pull ; ./configure --prefix=/usr --with-x-toolkit=gtk3 --with-tree-sitter --without-xim ; make -j32; sudo make install ; sudo rm /usr/local/share/applications/emacsclient.desktop
 ```
 
 * Use `--with-pgtk` instead `--with-x-toolkit=gtk3` if you use Wayland.
 * Use `--without-xim` option to avoid input method active in Emacs, emacs-rime is better solution.
 
-2. Install Font:
-
-```
-sudo pacman -S wqy-microhei
-```
-
-Need install font `TsangerJinKai03-6763`, otherwise rime can't work
-
-3. Install dependency for from [EAF](https://github.com/manateelazycat/emacs-application-framework), holo-layer, deno, key-echo
-
-4. Build my config symlink to emacs directory:
+2. Add lazycat extensions to Emacs
 ```
 sudo ln -s /home/username/lazycat-emacs/site-lisp /usr/share/emacs/lazycat
-```
 
-5. Copy site-start.el in emacs directory to start my config:
-```
 sudo cp /home/username/lazycat-emacs/site-start.el /usr/share/emacs/site-lisp/
 ```
 
 Emacs29 native-comp branch will freeze if I put config in `/usr/share/emacs/site-lisp/`, we need put config in ~/.emacs instead to avoid Emacs29 freeze.
+
+3. Install dependency for [EAF](https://github.com/manateelazycat/emacs-application-framework), holo-layer, deno, key-echo, blink-search etc.
+
+```
+sudo pip3 install epc sexpdata six inflect pynput orjson requests setuptools paramiko rapidfuzz watchdog packaging --break
+```
+
+```
+cd /home/username/lazycat-emacs/site-lisp/extensions/emacs-application-framework/
+./install-eaf.py -f
+```
 
 ## Update extensions.
 When I want upgrade extensions to newest version, I will use below command:
